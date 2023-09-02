@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Web Page</title>
+</head>
+<body>
+    <h1>Simple Web Page</h1>
+    <form id="myForm">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required><br><br>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required><br><br>
+
+        <label for="options">Select an Option:</label>
+        <select id="options" name="options">
+            <option value="Option 1">Option 1</option>
+            <option value="Option 2">Option 2</option>
+            <option value="Option 3">Option 3</option>
+        </select><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("myForm");
+
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                const firstName = document.getElementById("firstName").value;
+                const lastName = document.getElementById("lastName").value;
+                const selectedOption = document.getElementById("options").value;
+
+                const formData = `First Name: ${firstName}, Last Name: ${lastName}, Option: ${selectedOption}`;
+
+                // Save the form data to local storage
+                localStorage.setItem("formData", formData);
+
+                // Clear the form
+                form.reset();
+            });
+        });
+    </script>
+</body>
+</html>
