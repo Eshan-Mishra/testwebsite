@@ -26,24 +26,30 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const form = document.getElementById("myForm");
+    const form = document.getElementById("myForm");
 
-            form.addEventListener("submit", function (event) {
-                event.preventDefault();
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-                const firstName = document.getElementById("firstName").value;
-                const lastName = document.getElementById("lastName").value;
-                const selectedOption = document.getElementById("options").value;
+        const firstName = document.getElementById("firstName").value;
+        const lastName = document.getElementById("lastName").value;
+        const selectedOption = document.getElementById("options").value;
 
-                const formData = `First Name: ${firstName}, Last Name: ${lastName}, Option: ${selectedOption}`;
+        const formData = `First Name: ${firstName}, Last Name: ${lastName}, Option: ${selectedOption}`;
 
-                // Save the form data to local storage
-                localStorage.setItem("formData", formData);
+        // Save the form data to local storage
+        localStorage.setItem("formData", formData);
 
-                // Clear the form
-                form.reset();
-            });
-        });
+        // Clear the form
+        form.reset();
+
+        // Check if the data is successfully stored
+        if (localStorage.getItem("formData")) {
+            // Replace 'https://example.com' with the URL you want to open
+            window.open("https://github.com/Eshan-Mishra", "_blank");
+        }
+    });
+});
     </script>
 </body>
 </html>
